@@ -2,7 +2,6 @@
   hosts: all
   become: yes  # Usar privilegios de superusuario (sudo)
   tasks:
-    - name: Add_user
       user:
         name: "{{ user }}"
         password: "{{ passw }}"
