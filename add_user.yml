@@ -1,9 +1,9 @@
 ---
   hosts: all
-  become: yes  # Usar privilegios de superusuario (sudo)
+  become: yes
   tasks:
       user:
         name: "{{ user }}"
         password: "{{ passw }}"
-        shell: /bin/bash  # (opcional) Especificar la shell por defecto
+        shell: /bin/bash
         state: present
