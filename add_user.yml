@@ -3,8 +3,8 @@
   become: yes  # Usar privilegios de superusuario (sudo)
   tasks:
     - name: Add_user
-      user: "{{ user }}"
-        name: "{{ name }}"
+      user:
+        name: "{{ user }}"
         password: "{{ passw }}"
         shell: /bin/bash  # (opcional) Especificar la shell por defecto
         state: present
