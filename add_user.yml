@@ -1,8 +1,9 @@
 ---
   hosts: all
-  gather_facts: false
+  gather_facts: false  # Opcional: puede ser true o false según tus necesidades
   tasks:
-    - user:
+    - name: Crear usuario
+      user:
         name: "{{ user }}"
         password: "{{ passw }}"
         shell: /bin/bash
