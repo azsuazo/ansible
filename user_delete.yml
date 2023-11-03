@@ -3,5 +3,5 @@
   tasks:
     - name: Eliminar usuario
       user:
-        name: "{{ usuer }}"
+        name: "{{ username }}"
         state: absent
