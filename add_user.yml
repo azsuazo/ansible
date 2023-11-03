@@ -18,14 +18,14 @@
         
     - name: Crear carpeta ssh
       file:
-        path: /home/"{{ user }}"/.ssh
+        path: "/home/{{ user }}/.ssh"
         state: directory
         owner: "{{ user }}"
         group: "{{ user }}"
 
     - name: Crear un directorio key
       file:
-        path: /home/"{{ user }}"/.ssh/authorized_keys
+        path: "/home/{{ user }}/.ssh/authorized_keys"
         state: touch
         owner: "{{ user }}"
         group: "{{ user }}"
