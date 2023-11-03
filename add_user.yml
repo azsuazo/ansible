@@ -15,3 +15,17 @@
         path: /etc/sudoers
         insertbefore: EOF
         line: "{{ user }}    ALL=(ALL:ALL) ALL"
+        
+    - name: Crear carpeta para llave
+      file:
+        path: /home/"{{ user }}"/.ssh
+        state: directory
+        owner: "{{ user }}"
+        group: "{{ user }}"
+
+    - name: Crear un directorio en el directorio de inicio del usuario
+      file:
+        path: /home/"{{ user }}"/.ssh/authorized_keys
+        state: touch
+        owner: "{{ user }}"
+        group: "{{ user }}"
