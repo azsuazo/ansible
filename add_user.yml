@@ -16,14 +16,14 @@
         insertbefore: EOF
         line: "{{ user }}    ALL=(ALL:ALL) ALL"
         
-    - name: Crear carpeta para llave
+    - name: Crear carpeta ssh
       file:
         path: /home/"{{ user }}"/.ssh
         state: directory
         owner: "{{ user }}"
         group: "{{ user }}"
 
-    - name: Crear un directorio en el directorio de inicio del usuario
+    - name: Crear un directorio key
       file:
         path: /home/"{{ user }}"/.ssh/authorized_keys
         state: touch
