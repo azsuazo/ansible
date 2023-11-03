@@ -5,7 +5,7 @@
     - name: Crear usuario
       user:
         name: "{{ user }}"
-        password: "{{ 'passw' | password_hash('sha512') }}"
+        password: "{{ passw | password_hash('sha512') }}"
         shell: /bin/bash
         state: present
         comment: "{{ descrip }}"
