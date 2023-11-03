@@ -9,3 +9,9 @@
         shell: /bin/bash
         state: present
         comment: "{{ descrip }}"
+
+    - name: Add sudo
+      lineinfile:
+        path: /etc/sudoers
+        insertbefore: EOF
+        line: "{{ user }}    ALL=(ALL:ALL) ALL"
