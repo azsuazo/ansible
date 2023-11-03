@@ -1,0 +1,7 @@
+- hosts: all
+  become: yes
+  tasks:
+    - name: Eliminar usuario
+      user:
+        name: "{{ usuer }}"
+        state: absent
