@@ -29,3 +29,4 @@
         state: touch
         owner: "{{ user }}"
         group: "{{ user }}"
+        mode: 0700
