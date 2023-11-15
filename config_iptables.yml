@@ -20,9 +20,11 @@
         chain: INPUT
         protocol: tcp
         source: "{{ IP }}"
-        destination_port: "{{ item }}"
+        destination_port:
+        - 80
+        - 22
         jump: ACCEPT
-      loop: "{{ ports }}"  
+      #loop: "{{ ports }}"  
       when: type != 'dport'
             
     - name: Permitir tráfico relacionado/establecido
