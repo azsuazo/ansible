@@ -1,0 +1,7 @@
+- hosts: tu_servidor
+  become: true
+  tasks:
+    - name: Instalar iptables-persistent
+      apt:
+        name: iptables-persistent
+        state: present
