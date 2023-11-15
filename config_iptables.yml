@@ -21,9 +21,11 @@
         chain: INPUT
         protocol: tcp
         source:  "{{ IP }}"
-        destination_port: "{{ item }}"
+        destination_port:
+        - 22
+        - 80
         jump: ACCEPT
-        with_items: "{{ ports }}"
+        #with_items: "{{ ports }}"
         when: "{{ type }}" != "dport"
 
             
