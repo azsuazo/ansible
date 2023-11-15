@@ -13,7 +13,17 @@
         source:  "{{ IP }}"
         destination_port: "{{ ports }}"
         jump: ACCEPT
-
+        when: "{{ type }}" == "dport"
+        
+    - name: Permitir tráfico desde una IP a múltiples puertos TCP usando multiport
+      iptables:
+        chain: INPUT
+        protocol: tcp
+        source: "{{ IP }}"
+        multiport:
+          dports: "{{ ports }}"
+        jump: ACCEPT
+         when: "{{ type }}" != "dport"
             
     - name: Permitir tráfico relacionado/establecido
       iptables:
