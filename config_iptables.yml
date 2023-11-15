@@ -20,9 +20,9 @@
         chain: INPUT
         protocol: tcp
         source: "{{ IP }}"
-        multiport:
-          dports: "{{ ports }}"
+        destination_port: "{{ item }}"
         jump: ACCEPT
+      loop: "{{ ports }}"  
       when: type != 'dport'
             
     - name: Permitir tráfico relacionado/establecido
