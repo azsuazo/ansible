@@ -6,16 +6,16 @@
         name: iptables-persistent
         state: present
     
-    - name: Crear reglas para la red de IT
+    - name: Crear reglas para la red de IT - destino puerto
       iptables:
         chain: INPUT
         protocol: tcp
-        source:  "{{ IP }}"
+        source: "{{ IP }}"
         destination_port: "{{ ports }}"
         jump: ACCEPT
-        when: "{{ type }}" == "dport"
+      when: "'{{ type }}' == 'dport'"
         
-    - name: Permitir tráfico desde una IP a múltiples puertos TCP usando multiport
+    - name: Crear reglas para la red de IT - multiport
       iptables:
         chain: INPUT
         protocol: tcp
@@ -23,7 +23,7 @@
         multiport:
           dports: "{{ ports }}"
         jump: ACCEPT
-         when: "{{ type }}" != "dport"
+      when: "'{{ type }}' != 'dport'"
             
     - name: Permitir tráfico relacionado/establecido
       iptables:
@@ -36,6 +36,4 @@
       iptables:
         chain: INPUT
         in_interface: lo
-        jump: ACCEPT        
-
-  
+        jump: ACCEPT     
