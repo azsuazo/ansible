@@ -13,20 +13,6 @@
         source:  "{{ IP }}"
         destination_port: "{{ ports }}"
         jump: ACCEPT
-        when: "{{ type }}" == "dport"
-
-
-    - name: Crear reglas mutitipuertos para la red de IT
-      iptables:
-        chain: INPUT
-        protocol: tcp
-        source:  "{{ IP }}"
-        destination_port:
-        - 22
-        - 80
-        jump: ACCEPT
-        #with_items: "{{ ports }}"
-        when: "{{ type }}" != "dport"
 
             
     - name: Permitir tráfico relacionado/establecido
