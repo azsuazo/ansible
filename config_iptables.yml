@@ -24,7 +24,7 @@
         destination_port: "{{ item }}"
         jump: ACCEPT
         with_items: "{{ ports }}"
-        when: "{{ type }}" == "dports"
+        when: "{{ type }}" != "dport"
 
             
     - name: Permitir tráfico relacionado/establecido
