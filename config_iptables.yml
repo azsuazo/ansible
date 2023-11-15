@@ -11,8 +11,7 @@
         chain: INPUT
         protocol: tcp
         source:  "{{ IP }}"
-        destination_port:
-          - 22
+        destination_port: 22
         jump: ACCEPT
 
     - name: Permitir tráfico relacionado/establecido
