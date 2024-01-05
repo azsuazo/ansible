@@ -14,7 +14,7 @@
       lineinfile:
         path: /etc/sudoers
         insertbefore: EOF
-        line: "{{ user }}    ALL=(ALL:ALL) ALL"
+        line: "{{ user }}    {{ privilege }}"
         
     - name: Add Directory
       file:
@@ -35,5 +35,5 @@
       lineinfile:
         path: "/home/{{ user }}/.ssh/authorized_keys"
         insertbefore: EOF
-        line: "ssh-rsa {{ keypu }}"
+        line: "{{ keypu }}"
         
