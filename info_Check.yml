@@ -1,0 +1,13 @@
+---
+- name: Cisco Enable Passsword, Debug,msg
+  hosts: ring_test
+  
+  tasks:
+    - name: Get fact
+      debug:
+        msg: 
+         - "Hostname is: {{ansible_net_hostname}}"
+         #- "Image is: {{ansible_net_image}}"
+         #- "Version is: {{ansible_net_version}}"
+         #- "Model is: {{ansible_net_model}}"
+         #- "System serial number: {{ansible_net_serialnum}}"
